@@ -30,7 +30,7 @@ RUN userdel -r ubuntu 2>/dev/null || true \
 USER claude
 RUN curl -fsSL https://claude.ai/install.sh | bash
 USER root
-RUN mv /home/claude/.local/bin/claude /usr/local/bin/claude \
+RUN cp -L /home/claude/.local/bin/claude /usr/local/bin/claude \
     && rm -rf /home/claude/.local
 
 # Seed .bashrc to source secrets and add claude binary to PATH
