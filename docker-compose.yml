@@ -12,6 +12,7 @@ services:
     volumes:
       - claude-home:/home/claude
       - /home/tsekula/projects/code:/home/claude/projects
+      - /home/tsekula/projects/.claude:/home/claude/.claude
 
 volumes:
   claude-home:
