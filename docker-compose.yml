@@ -1,0 +1,18 @@
+services:
+  claude-code:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: claude-code
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+    volumes:
+      - claude-home:/home/claude
+      - /home/tom/Documents/Projects:/home/claude/projects
+
+volumes:
+  claude-home:
+    name: claude-code_home
