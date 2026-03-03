@@ -28,8 +28,9 @@ RUN curl -fsSL https://deb.nodesource.com/setup_lts.x | bash - \
 # Install Claude Code
 RUN npm install -g @anthropic-ai/claude-code
 
-# Create claude user with UID 1000
-RUN useradd -m -u 1000 -s /bin/bash claude \
+# Remove the default ubuntu user (UID 1000) and create claude at UID 1000
+RUN userdel -r ubuntu 2>/dev/null || true \
+    && useradd -m -u 1000 -s /bin/bash claude \
     && echo 'claude ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
 # Seed .bashrc to source secrets
