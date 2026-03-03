@@ -30,6 +30,8 @@ USER claude
 RUN curl -fsSL https://claude.ai/install.sh | bash
 USER root
 
+ENV PATH="/home/claude/.local/bin:${PATH}"
+
 # Seed .bashrc to source secrets and add claude binary to PATH
 RUN echo '\n# Source API keys if available\n[ -f "$HOME/.env_secrets" ] && source "$HOME/.env_secrets"' \
     >> /home/claude/.bashrc \
