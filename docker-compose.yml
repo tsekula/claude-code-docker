@@ -11,7 +11,7 @@ services:
       - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
     volumes:
       - claude-home:/home/claude
-      - /home/tom/Documents/Projects:/home/claude/projects
+      - /home/tsekula/projects/code:/home/claude/projects
 
 volumes:
   claude-home:
